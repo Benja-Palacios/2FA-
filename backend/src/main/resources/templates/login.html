@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Login</title>
+	<th:block th:replace="/scriptRender/javaScript :: javaScript"></th:block>
+</head>
+<body>
+	<h1> Login </h1>
+
+	<form method="POST" action="/">
+		User ID :  <input type="text" name="User" id="user"/><br />
+		Password : <input type="password" name="Password" id="password"/><br />
+		<br /> <input type="button" value="Submit" onClick="login();"/>
+	</form>
+
+</body>
+</html>

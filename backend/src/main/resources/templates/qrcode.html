@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app="spring-totp" lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title><title>Two Factor Authentication (2FA) - QR Code</title></title>
+    <th:block th:replace="/scriptRender/javaScript :: javaScript"></th:block>
+</head>
+<body align="center">
+    <div ng-controller="UserAdminController as userAdmin">
+        <h1>Crear QR Code</h1>
+
+        <form method="POST" action="/">
+            User ID :  <input type="text" name="Username" id="username"/><br />
+            <br /> <input type="button" value="Submit" onClick="createQRCode();"/>
+        </form>
+
+    </div>
+    <div>
+        <img id="qr" src="" />
+    </div>
+</body>
+</html>

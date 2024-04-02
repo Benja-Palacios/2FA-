@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html ng-app="spring-totp" lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Two Factor Authentication (2FA) - Create User</title>
+    <th:block th:replace="/scriptRender/javaScript :: javaScript"></th:block>
+</head>
+<body align="center">
+    <div ng-controller="UserAdminController as userAdmin">
+        <h1>Crear Usuario</h1>
+
+        <form method="POST" action="/">
+            User ID :  <input type="text" name="Username" id="username"/><br />
+            Password : <input type="password" name="Password" id="password"/><br />
+            <br /> <input type="button" value="Submit" onClick="createUser();"/>
+        </form>
+
+    </div>
+</body>
+</html>
