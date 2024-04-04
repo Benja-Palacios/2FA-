@@ -14,7 +14,7 @@ public class TOTPController {
 
     @Autowired
     private UserService userService;
-
+    @CrossOrigin(origins = "http://localhost:8080")
     @PostMapping(value = "/users")
     public @ResponseBody
     User createUser(@RequestBody User user) {
@@ -22,14 +22,14 @@ public class TOTPController {
         savedUser.setPassword("");
         return savedUser;
     }
-
+    @CrossOrigin(origins = "http://localhost:8080")
     @GetMapping(value = "/qrcode/get/{username}")
     public String generateQRCode(@PathVariable("username") String userName) throws Throwable {
         String otpProtocol = userService.generateOTPProtocol(userName);
         System.out.println(otpProtocol);
         return userService.generateQRCode(otpProtocol);
     }
-
+    @CrossOrigin(origins = "http://localhost:8080")
     @PostMapping(value = "/qrcode/validate/{username}")
     public boolean validateTotp(@PathVariable("username") String userName, @Valid @RequestBody String requestJson) {
         JSONObject json = new JSONObject(requestJson);
