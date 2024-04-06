@@ -16,6 +16,7 @@ import org.springframework.util.StringUtils;
 
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
+import java.util.Objects;
 
 @Component
 public class UserService {
@@ -38,6 +39,14 @@ public class UserService {
         user.setPassword(encoder().encode(user.getPassword()));
         user.setSecret(totpAuthenticator.generateSecret());
         return userRepository.save(user);
+    }
+
+    public boolean firstAuth(String userName, String password){
+        User user = userRepository.findById(userName).orElse(null);
+        if (Objects.nonNull(user)) {
+            return encoder().matches(password, user.getPassword());
+        }
+        return false;
     }
 
     public String generateOTPProtocol(String userName) {
