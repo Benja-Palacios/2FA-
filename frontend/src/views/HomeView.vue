@@ -122,4 +122,7 @@ export default {
 .is-invalid {
   border-color: #dc3545;
 }
+.swal2-timer-progress-bar{
+    background-color: purple !important;
+}
 </style>
